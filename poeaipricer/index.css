@@ -1,0 +1,59 @@
+body {
+    -webkit-app-region: drag; 
+    font-family: 'Share Tech', sans-serif;
+    color: white;
+    text-shadow: 8px 8px 10px #0000008c;
+    background: linear-gradient(-45deg, #ac6049, #302f2f, #23a6d5, #cecece);
+    background-size: 400% 400%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.result-div {   
+    -webkit-app-region: no-drag; 
+    border: 1px solid;
+    border-radius: 1%;
+    margin-top: 20px;
+}
+
+
+.found-item-div {
+    -webkit-app-region: no-drag; 
+    border: 1px solid;
+    border-radius: 1%;
+}
+
+textarea {
+    -webkit-app-region: no-drag; 
+    background: none; 
+    resize: none; 
+    overflow: hidden; 
+    border: none;
+    outline: none; 
+    width: 100%; 
+    pointer-events: none;
+    font-family: inherit;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+#close-button {
+    -webkit-app-region: no-drag; 
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+
+#evaluate-button {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

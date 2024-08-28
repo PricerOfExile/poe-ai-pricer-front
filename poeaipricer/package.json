@@ -1,0 +1,28 @@
+{
+  "name": "poeaipricer",
+  "version": "1.0.0",
+  "description": "ai pricer for path of exile",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "ai",
+    "pricer",
+    "poe"
+  ],
+  "author": "Ahmad and the pricers",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "electron": "^32.0.1"
+  },
+  "dependencies": {
+    "active-win": "^9.0.0",
+    "electron-overlay-window": "^3.3.0",
+    "iohook-raub": "^0.1.1",
+    "node-global-key-listener": "^0.3.0",
+    "uiohook-napi": "^1.5.4"
+  }
+}
