@@ -34,8 +34,8 @@ function formatText(text) {
 
 
 function listenToCtrlC(e, down) {
-  if (e.state == "DOWN" &&
-    e.name == "C" &&
+  if (e.state === "DOWN" &&
+    e.name === "C" &&
     (down["LEFT CTRL"] || down["RIGHT CTRL"])) {
     setTimeout(() => {
       checkClipboard();
@@ -43,19 +43,12 @@ function listenToCtrlC(e, down) {
   }
 }
 
-function evaluate(rating) {
-  const url = 'http://127.0.0.1:5000/evaluate';
-
-  const data = {
-      rating: rating
-  };
+function evaluate(item) {
+  const url = 'http://127.0.0.1:8080/evaluate';
 
   const options = {
       method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      body: item
   };
 
   fetch(url, options)
@@ -63,11 +56,10 @@ function evaluate(rating) {
           if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
           }
-          return response.json();
+          return response.text();
       })
       .then(data => {
-          // Display the response message
-          resultParagraph.textContent = data.message || data.error;
+          resultParagraph.textContent = data || data.error;
       })
       .catch(error => {
           console.error('There was a problem with the fetch operation:', error);
@@ -92,6 +84,6 @@ closeButton.addEventListener('click',function() {
 });
 
 evaluateButton.addEventListener('click',function() {
-  evaluate(1);
+  evaluate(foundItemParagraph.textContent);
 });
 

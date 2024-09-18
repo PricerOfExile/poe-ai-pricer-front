@@ -53,7 +53,6 @@ function createTray() {
   const meun = [
     {
       id: 'Exit', label: 'Exit', click: () => {
-        quitting = true;
         app.quit();
       }
     },
