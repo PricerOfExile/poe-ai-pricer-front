@@ -15,6 +15,7 @@
   "author": "Ahmad and the pricers",
   "license": "MIT",
   "devDependencies": {
+    "@electron/packager": "^18.3.5",
     "@types/node": "^22.5.0",
     "electron": "^32.0.1"
   },

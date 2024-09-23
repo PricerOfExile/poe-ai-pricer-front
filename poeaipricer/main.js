@@ -8,6 +8,11 @@ let win = null;
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
+const gotTheLock = app.requestSingleInstanceLock()
+    
+if (!gotTheLock) {
+  app.quit()
+}
 
 function createWindow () {
   win = new BrowserWindow({
@@ -42,7 +47,7 @@ function createAppRunningWindow() {
 
   setTimeout(() => {
     appRunningNotifWindow.close()
-  }, 3000);
+  }, 5000);
 }
 
 
@@ -75,7 +80,7 @@ function createTray() {
   ];
   let tray = new Tray(path.resolve(__dirname, 'poeicon.png'));
   const contextMenu = Menu.buildFromTemplate(meun);
-  tray.setToolTip('POE AI PRICER');
+  tray.setToolTip('Application running in the background');
   tray.setContextMenu(contextMenu);
 }
 
