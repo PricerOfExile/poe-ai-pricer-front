@@ -14,7 +14,7 @@ if (!gotTheLock) {
   app.quit()
 }
 
-function createWindow () {
+function createMainWindow () {
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -87,7 +87,7 @@ function createTray() {
 app.whenReady().then(() => {
   ipcMain.handle('is-game-on', isGameOn);
   createAppRunningWindow();
-  createWindow();
+  createMainWindow();
   createTray();
 });
 

@@ -59,7 +59,7 @@ function evaluate(item) {
           return response.text();
       })
       .then(data => {
-          resultParagraph.textContent = data || data.error;
+          resultParagraph.textContent = "Your Item is in rating : " + data;
       })
       .catch(error => {
           console.error('There was a problem with the fetch operation:', error);
