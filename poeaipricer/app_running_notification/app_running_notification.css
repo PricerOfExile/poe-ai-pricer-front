@@ -1,0 +1,62 @@
+#container {
+  position: absolute;
+  margin: auto;
+  overflow: hidden;
+  width: 245px;
+  height: 250px;
+  left: 45%;
+  top: 45%;
+  background: linear-gradient(to right, #556270, #ff6b6b);
+  box-shadow: 5px 5px 20px rgba(#cbcdd3, 10%);
+  border-radius: 20px;
+  perspective: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  animation: bounce 1s ease-in infinite;
+
+}
+
+h1 {
+  font-size: 0.9em;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+  padding-top: 5px;
+  color: #fcfcfc;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+p {
+  margin-top: -5px;
+  font-size: 0.7em;
+  font-weight: 100;
+  color: darken(#777777, 10%);
+  letter-spacing: 1px;
+}
+
+.icon-logo {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  background: #fcfcfc;
+  border-radius: 50%;
+  border: 1px solid #777777;
+  top: 21%;
+  left: 37.5%;
+  z-index: 2;
+}
+
+.message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 40%;
+  top: 47%;
+}
+
+@keyframes bounce {
+    50% {
+       transform: translateY(-10px);
+    }
+  }
+  

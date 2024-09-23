@@ -30,6 +30,22 @@ function createWindow () {
   ipcActions();
 }
 
+function createAppRunningWindow() {
+  const appRunningNotifWindow = new BrowserWindow({
+    frame: false,
+    autoHideMenuBar: true,
+    transparent: true,
+  });
+
+  appRunningNotifWindow.loadFile('app_running_notification/app_running_notification.html');
+  appRunningNotifWindow.setAlwaysOnTop(true,"normal");
+
+  setTimeout(() => {
+    appRunningNotifWindow.close()
+  }, 3000);
+}
+
+
 async function isGameOn() {
   const window = await activeWindow();
   if(window){
@@ -65,6 +81,7 @@ function createTray() {
 
 app.whenReady().then(() => {
   ipcMain.handle('is-game-on', isGameOn);
+  createAppRunningWindow();
   createWindow();
   createTray();
 });
