@@ -11,36 +11,43 @@
 
 <body id="mainApp">
   <p id='close-button'>&#10006;</p>
-  <h2 id='title' >POE AI </h3>
-
-  <div class="found-item-div">
-    <h3>FOUND ITEM</h3>
+  <section class="found-item-div">
+    <h3>Found Item</h3>
     <textarea id='found-item'>
     </textarea>
     <button id='evaluate-button' >
       Evaluate
     </button>
+  </section>
 
-  </div>
-
-  <div class="result-div">
-    <h3>RESULT</h3>
+  <section class="result-div">
+    <h3>Result</h3>
     <textarea id='result'>
     </textarea>
-  </div>
-  <div class="result-div">
+    <button id="info-button" >
+      Info on result
+    </button>
+  </section>
 
-  <h3>Info on available ratings: </h3>
-    <ul>
-      <li>E : not worth taking</li>
-      <li>D : less likely to be good</li>
-      <li>C : might be good</li>
-      <li>B : almost good</li>
-      <li>A : potentialy very good</li>
-      <li>S : what are you waiting for ? take it</li>
-    </ul>
+
+  <div id="popup-overlay" class="popup-overlay">
+    <div class="popup"  id="popup">
+      <span class="close" id="close-popup">&times;</span>
+      <h3>Info on available ratings: </h3>
+      <ul>
+        <li>E : not worth taking</li>
+        <li>D : less likely to be good</li>
+        <li>C : might be good</li>
+        <li>B : almost good</li>
+        <li>A : potentialy very good</li>
+        <li>S : what are you waiting for ? take it</li>
+      </ul>
+    </div>
   </div>
+
   <script src="index.js"></script>
+  <script src="popup.js"></script>
+
 </body>
 
 </html>

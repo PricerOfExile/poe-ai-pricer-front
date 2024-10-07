@@ -16,7 +16,6 @@ clipboard.clear();
 
 function checkClipboard() {
   let clipboardContent = clipboard.readText();
-  console.log('clipboard content : ',clipboardContent);
   if(clipboardContent.startsWith('Item')){
     ipcRenderer.send('open-window');
     foundItemParagraph.textContent = formatText(clipboardContent);
@@ -86,4 +85,3 @@ closeButton.addEventListener('click',function() {
 evaluateButton.addEventListener('click',function() {
   evaluate(foundItemParagraph.textContent);
 });
-
