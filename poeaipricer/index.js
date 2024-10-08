@@ -10,7 +10,9 @@ var foundItemParagraph = document.getElementById('found-item');
 var closeButton = document.getElementById('close-button');
 var evaluateButton = document.getElementById('evaluate-button');
 var resultParagraph = document.getElementById('result');
-var mainApp = document.getElementById('mainApp');
+var resultDiv = document.getElementById('result-div');
+var spinner = document.getElementById('spinner');
+var ratingInfoDiv = document.getElementById('rating-info');
 
 clipboard.clear();
 
@@ -32,17 +34,21 @@ function formatText(text) {
 }
 
 
-function listenToCtrlC(e, down) {
+function listenToCtrlC(e, down) {  
   if (e.state === "DOWN" &&
     e.name === "C" &&
     (down["LEFT CTRL"] || down["RIGHT CTRL"])) {
     setTimeout(() => {
+      resultDiv.style.display = 'none';
       checkClipboard();
     }, 500);
   }
 }
 
+
 function evaluate(item) {
+  spinner.style.display = 'flex';
+
   const url = 'http://127.0.0.1:8080/evaluate';
 
   const options = {
@@ -52,16 +58,24 @@ function evaluate(item) {
 
   fetch(url, options)
       .then(response => {
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.text();
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
       })
       .then(data => {
-          resultParagraph.textContent = "Your Item is in rating : " + data;
+        spinner.style.display = 'none';
+        resultDiv.style.display = 'block';
+        ratingInfoDiv.style.display = 'block';
+
+        resultParagraph.textContent = "Your Item is in rating : " + data;
       })
       .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
+        spinner.style.display = 'none';
+        resultDiv.style.display = 'block';
+        ratingInfoDiv.style.display = 'none';
+
+        resultParagraph.textContent = 'There was a problem with the fetch operation:' + error;
       });
 }
 

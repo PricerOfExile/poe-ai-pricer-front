@@ -20,19 +20,15 @@
     </button>
   </section>
 
-  <section class="result-div">
+  <section id="spinner" class="loader-section">
+    <span class="loader" ></span>
+  </section>
+
+  <section class="result-div" id="result-div">
     <h3>Result</h3>
     <textarea id='result'>
     </textarea>
-    <button id="info-button" >
-      Info on result
-    </button>
-  </section>
-
-
-  <div id="popup-overlay" class="popup-overlay">
-    <div class="popup"  id="popup">
-      <span class="close" id="close-popup">&times;</span>
+    <div id="rating-info">
       <h3>Info on available ratings: </h3>
       <ul>
         <li>E : not worth taking</li>
@@ -43,11 +39,9 @@
         <li>S : what are you waiting for ? take it</li>
       </ul>
     </div>
-  </div>
+  </section>
 
   <script src="index.js"></script>
-  <script src="popup.js"></script>
-
 </body>
 
 </html>
