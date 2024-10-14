@@ -50,24 +50,22 @@ function createWelcomingPopupWindow() {
 function createTray() {
   const meun = [
     {
-      id: 'show-app', label: 'Show app', click: 
+      id: 'show-app', label: 'Show app', click: () => showApp()
     },
     {
-      id: 'exit', label: 'Exit', click: () => {
-        exitApp();
-      }
+      id: 'exit', label: 'Exit', click: () => exitApp()
     }
   ];
 
   let tray = new Tray(path.resolve(__dirname, 'assets/poeicon.png'));
   const contextMenu = Menu.buildFromTemplate(meun);
-  tray.on('click',() => showApp);
+  tray.on('click',() => showApp());
   tray.setToolTip('Application running in the background');
   tray.setContextMenu(contextMenu);
 }
 
 function createIpcActions() {
-  ipcMain.on('open-window', async () => showApp);
+  ipcMain.on('open-window', async () => showApp());
 
   ipcMain.on('close-window', (event) => {
     minimizeApp();
