@@ -40,12 +40,13 @@ function showSpinner() {
 userInputListener.addListener(async function (_, down) {
   const isGameOn = await ipcRenderer.invoke('is-game-on');
   const isClickingCtrlC = down["C"] && (down["LEFT CTRL"] || down["RIGHT CTRL"]);
-
-  if(isGameOn && isClickingCtrlC && isCopyingAnItem()) {  
+  setTimeout(() => {
+    if(isGameOn && isClickingCtrlC && isCopyingAnItem()) {  
       ipcRenderer.send('open-window');
       foundItemParagraph.value = getClipboardContent();
       evaluateResult(getClipboardContent());
     }
+  }, 500);
 });
 
 minButton.addEventListener('click',function() {
@@ -76,7 +77,7 @@ function evaluateResult(item) {
   showSpinner();
   callApi(item).then(res => {
     hideSpinner();
-    resultParagraph.value = "Your item rating is " , res;
+    resultParagraph.value = "Your item rating is " + res;
   }).catch(err => {
     hideSpinner();
     resultParagraph.value = err;
