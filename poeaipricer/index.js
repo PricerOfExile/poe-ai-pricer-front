@@ -34,7 +34,7 @@ function hideSpinner() {
 
 function showSpinner() {
   resultDiv.style.display = 'none';
-  spinner.style.display = "block";
+  spinner.style.display = "flex";
 }
 
 userInputListener.addListener(async function (_, down) {
@@ -97,8 +97,8 @@ async function callApi(item) {
     if (!response.ok) {
       throw new Error("Could not get result of evaluation !");
     }
-    const data = await response.text();
-    return data;
+    const data = await response.json();
+    return data.prediction;
   } catch(error){
     throw error;
   }

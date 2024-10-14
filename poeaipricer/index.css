@@ -172,6 +172,7 @@ popup:hover {
 .loader-section{
     display: none;
     justify-content: center;
+    align-items: center;     
 }
 
 .rating-info {
