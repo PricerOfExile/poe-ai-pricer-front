@@ -11,6 +11,8 @@
 
 <body id="mainApp">
   <p id='close-button'>&#10006;</p>
+  <p id='min-button'>&#95;</p>
+
   <section class="found-item-div">
     <h3>Found Item</h3>
     <textarea id='found-item'>
@@ -26,19 +28,21 @@
 
   <section class="result-div" id="result-div">
     <h3>Result</h3>
+    <button id="additionalInfoBtn" class="info-button">additional info on ratings</button>
     <textarea id='result'>
     </textarea>
-    <div id="rating-info">
-      <h3>Info on available ratings: </h3>
-      <ul>
-        <li>E : not worth taking</li>
-        <li>D : less likely to be good</li>
-        <li>C : might be good</li>
-        <li>B : almost good</li>
-        <li>A : potentialy very good</li>
-        <li>S : what are you waiting for ? take it</li>
-      </ul>
-    </div>
+  </section>
+
+  <section id="rating-info" class="rating-info">
+    <h3>Info on available ratings: </h3>
+    <ul>
+      <li>E : not worth taking</li>
+      <li>D : less likely to be good</li>
+      <li>C : might be good</li>
+      <li>B : almost good</li>
+      <li>A : potentialy very good</li>
+      <li>S : what are you waiting for ? take it</li>
+    </ul>
   </section>
 
   <script src="index.js"></script>

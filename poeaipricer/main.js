@@ -15,6 +15,7 @@ if (!gotTheLock) {
 
 function createMainWindow () {
   mainWindow = new BrowserWindow({
+    width:900,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -26,7 +27,7 @@ function createMainWindow () {
   });
 
   mainWindow.loadFile('index.html');
-  // win.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   mainWindow.setAlwaysOnTop(true,"normal");
 
   createIpcActions();
@@ -69,7 +70,10 @@ function createIpcActions() {
 
   ipcMain.on('close-window', (event) => {
     minimizeApp();
-  
+  });
+
+  ipcMain.on('exit-app', (event) => {
+    exitApp();
   });
 }
 
