@@ -41,7 +41,6 @@ textarea {
     border-radius: 5px;
     padding: 10px;
     resize: none; 
-    pointer-events: none; 
     display: block;
     box-sizing: border-box;
 }
