@@ -27,7 +27,6 @@ function createMainWindow () {
   });
 
   mainWindow.loadFile('index.html');
-  mainWindow.webContents.openDevTools();
   mainWindow.setAlwaysOnTop(true,"normal");
 
   createIpcActions();
